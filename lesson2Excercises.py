@@ -138,3 +138,15 @@ def free_change():
 	print(x_item,abs(10-x_price))
 
 free_change()
+
+#ARGS, KEYWORD ARGS & DEFAULTS
+
+#rewrite all the snacks so that num and spacer have defaults of 100 and ','
+
+def all_the_snacks(snacks,spacer=', ',num=100):
+	print((snacks+spacer)*num)
+
+all_the_snacks(snack2)	
+all_the_snacks(snack2,'!')
+all_the_snacks(snack2,num =42)
+all_the_snacks(snack2,num = 10, spacer = '?')
