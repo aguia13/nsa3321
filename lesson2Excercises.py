@@ -150,3 +150,61 @@ all_the_snacks(snack2)
 all_the_snacks(snack2,'!')
 all_the_snacks(snack2,num =42)
 all_the_snacks(snack2,num = 10, spacer = '?')
+
+
+#examples of scope
+#x=5
+#def f():
+	#x=6
+	#print(x)
+
+#def f():
+	#global x
+	#x = 6
+
+#ex of input
+#a = input("Please enter your name")
+
+#exercises with input
+my_color = input("What is your favorite color?")
+neighbor_color = input("What is your neighbor's favorite color?")
+
+my_num = input("What is your favorite number?")
+
+#print(2+my_num)	#this fails because input stores my_num as str var. typecast and you can fix this problem
+
+my_num = int(my_num)
+print(2+my_num)
+
+def color_swapper(color1,color2):
+	color1,color2 = color2,color1
+	print("You and your neighbor's favorite colors are ",color1,"and",color2)
+
+color_swapper(my_color,neighbor_color)	
+
+print(my_color,neighbor_color)
+
+def global_color_swapper(color1,color2):
+	global my_color,neighbor_color
+	my_color, neighbor_color = color2,color1
+
+global_color_swapper(my_color,neighbor_color)
+print(my_color,neighbor_color)
+
+
+#REVIEW
+
+def Volume(w,l,h):
+	total = w*l*h
+	#print(total)
+	return total
+
+Volume(2,3,4)
+
+def Volume2(w,l,h=1):
+	total = w*l*h
+	#print(total)
+	return total
+
+Volume2(2,3)
+
