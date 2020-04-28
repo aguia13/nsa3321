@@ -1,3 +1,4 @@
+'''
 #Lesson2Exercises
 #save fav snack into var, print it 100 times
 snack = "apple"
@@ -207,4 +208,41 @@ def Volume2(w,l,h=1):
 	return total
 
 Volume2(2,3)
+'''
+#function exercises
+def isDivisibleBy7(num):
+	if(num%7 == 0):
+		print('True')
+	else:
+		print('False')
 
+'''
+isDivisibleBy7(3)
+isDivisibleBy7(7)
+isDivisibleBy7(13)
+isDivisibleBy7(14)
+isDivisibleBy7(84)
+'''
+
+def isDivisbleBy(num,divisor):
+	if(num%divisor==0):
+		print('True')
+	else:
+		print('False')
+'''
+isDivisbleBy(21,7)
+isDivisbleBy(35,7)
+isDivisbleBy(35,4)	
+'''
+
+def shout(word):
+	print(word.upper()+"!")
+'''
+shout('HELLO')	
+'''
+
+def introduce():
+	name = input("What's your name?")
+	print('HI '+name.upper())
+
+introduce()
