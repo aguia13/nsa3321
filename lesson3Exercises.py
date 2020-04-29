@@ -128,7 +128,7 @@ for(i,j) in enumerate(a):
 #xrange for python2
 
 for i in range(len(groceries)):
-	print(i+1,groceries[i
+	print(i+1,groceries[i])
 '''
 for i in enumerate(groceries):
 	print(i)
@@ -173,3 +173,22 @@ def splitter(word):
 		print(i)
 #splitter(blood)
 
+#Challenge
+def guessMyNum():
+	answer = int((random.random()*10))
+	guess = int(input("What number am I thinking of? You get 3 guesses."))
+	g_remaining = 3
+
+	#print(answer)
+	#print(guess)
+	while(g_remaining>0):
+		if(answer==guess):
+			print("You're correct! The number is ",answer)
+			break
+		elif(g_remaining==1):
+			print("You're out of guesses. The answer was",answer)
+			break
+		else:
+			g_remaining = g_remaining-1
+			guess = int(input("You have "+str(g_remaining)+"guesses remaining."))
+#guessMyNum()		
