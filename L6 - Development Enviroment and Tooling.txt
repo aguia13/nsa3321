@@ -1,0 +1,25 @@
+cmd to create env: py -m virtualEnv /path/to/new/virtual/enviroment
+
+cmd to activate env - NEWENV\Scripts\activate.bat
+
+The virtualenv package creates virtual enviroments ie isolated spaces containing their own python instances. It provides a utility script that manipulates your enviroment to ACTIVATE your enviroment of choice.
+
+IPython is an alternative interactive shell for python with lots of cool features
+	-tab completion
+	-color output,
+	-rich history recall
+	-better help interface
+	-'magic' commands
+	-a web-based notebook interface with easy to share files
+	-distributed computing(what?)
+
+ACTIVATE VIRTUAL ENV
+pip install ipython
+
+#For web interface, -----I havent downloaded yet!!----
+pip install pyzmq tornado jinja2 pygments
+ipython notebook --no-mathjax
+
+#For inline graphics
+pip install numpy #datascience lib
+pip install matplotlib	#plot lib
