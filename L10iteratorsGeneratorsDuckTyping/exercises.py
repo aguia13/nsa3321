@@ -18,7 +18,10 @@ class Query(object):
 class RangedQuery(Query):
 	def __init__(self,classification,justification,selector,start_date,end_date):
 		super(RangedQuery,self).__init__(classification,justification,selector)
-	
+		
+		for i in start_date:
+			print(i)
+
 		checkB = str.split(start_date,'-')
 		checkE = str.split(end_date,'-')
 		s_B = str(checkB[0])
@@ -28,7 +31,8 @@ class RangedQuery(Query):
 			self.start_date = start_date
 		else:
 			self.start_date = None
-			raise Exception("Enter Start Date in the following format: YYYY-MM-DD")			
+			raise Exception("Enter Start Date in the following format: YYYY-MM-DD")
+
 		if(int(checkE[0])>1900 and int(checkB[0]) <= 2020):
 			self.end_date = end_date
 		else:
@@ -42,6 +46,7 @@ class RangedQuery(Query):
 
 
 def main():
+	query1 = RangedQuery("TS//SI//REL TO USA, FVEY","Primary IP address of Zendian diplomat","10.254.18.162","2016-12-01","2016-12-15")
 	query2 = RangedQuery("TS//SI//REL TO USA, FVEY","Primary IP address of Zendian diplomat",["10.254.18.162","10.254.18.187"],"2016-12-01","2016-12-15")
 	query2.startDateSort()
 
