@@ -8,25 +8,27 @@ You get a intercepted email with a POSIX timestamp of 1435074325. the email is f
 says that there will be an attack o nthe Zendian capitol in 14 hours. When will the attack occur? (assume tz is same as kabul)
 '''
 import datetime
-from datetime import timedelta
+from datetime import date, timedelta
 
-def butchers(year):
+def easter(year):
 	a = year %19
-	b = year /100
+	b = year //100
 	c = year %100
-	d = b/4
-	e = b%4
-	f = (b+8)/25
-	g = (b-f+1)/3
-	h = (19*a+b-d-g+15)%30
-	i = c/4
-	k = c%4
-	l = (32_2*e+2*i-h-k)%7
-	m = (a+11*h+22*l)/451
-	easter = (h+l-7*m+114)/31
-	p = (h+1-7*m+114)%31
-	date = (p+1)
-	return date
+	d = (19*a + b - b // 4 -((b-(b+8) // 25+1) //3) +15) %30
+	e = (32+2 * (b%4) +2 *(c//4) -d -(c%4)) %7
+	f = d + e - 7*((a+11 * d+22*e) //451) + 114
+	month = f // 31
+	day = f % 31 + 1
+	return(date(year,month,day))
+
+def avgCalc(days):
+	numYears = len(days)
+	total = 0
+	for i in range(numYears):
+		total += days[i].days
+	return(total/1000)
+
+
 
 def main():
 	xmas = datetime.datetime(2020,12,25)
@@ -38,11 +40,17 @@ def main():
 
 	print("There are ",xmas-now," hours left until Christmas")
 	print("It has been",since_birth.total_seconds(),"seconds since I was born")
-
-
-	print(butchers(2020))
 	
+	avgDays = []
 
+
+	for i in range(2000,3000):
+		iEaster = easter(i)
+		xmas = datetime.date(i,12,25)
+		avgDays.append(xmas-iEaster)
+
+
+	avgCalc(avgDays)
 
 
 
