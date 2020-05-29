@@ -9,8 +9,10 @@ says that there will be an attack o nthe Zendian capitol in 14 hours. When will 
 '''
 import datetime
 from datetime import date, timedelta
+from pytz import timezone
 
 def easter(year):
+	#BUTCHERS ALG	
 	a = year %19
 	b = year //100
 	c = year %100
@@ -21,12 +23,37 @@ def easter(year):
 	day = f % 31 + 1
 	return(date(year,month,day))
 
-def avgCalc(days):
-	numYears = len(days)
-	total = 0
-	for i in range(numYears):
-		total += days[i].days
-	return(total/1000)
+def avgCalc(b_year,e_year):
+	if(type(b_year) != int or type(e_year) != int):
+		print("Please enter a valid year")
+	else:
+		avgDays = 0
+
+		for i in range(b_year,e_year,1):
+			iEaster = easter(i)
+			xmas = datetime.date(i,12,25)
+			dayDiff = xmas-iEaster
+			avgDays += dayDiff.days
+		return int(avgDays/1000)	
+
+def whenXmas(day):
+	if(day ==0):
+		print('Monday')
+	elif(day == 1):
+		print('Tuesday')
+	elif(day == 2):
+		print('Wednesday')
+	elif(day == 3):
+		print('Thursday')
+	elif(day == 4):
+		print('Friday')
+	elif(day == 5):
+		print('Saturday')
+	elif(day == 6):
+		print('Sunday')
+	else:
+		print('Enter a valid day of the week')			
+
 
 
 
@@ -40,17 +67,13 @@ def main():
 
 	print("There are ",xmas-now," hours left until Christmas")
 	print("It has been",since_birth.total_seconds(),"seconds since I was born")
-	
-	avgDays = []
 
+	print(avgCalc(2000,2999))
+	whenXmas(xmas.weekday())
 
-	for i in range(2000,3000):
-		iEaster = easter(i)
-		xmas = datetime.date(i,12,25)
-		avgDays.append(xmas-iEaster)
+	attackTime = 1435074325
 
-
-	avgCalc(avgDays)
+	utcTime = datetime.datetime.utcfromtimestamp(attackTime)
 
 
 
